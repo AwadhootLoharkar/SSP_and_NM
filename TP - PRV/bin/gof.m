@@ -1,0 +1,1 @@
+/var/home/rudu/Documents/docker-lamp-stack/public_html/QT/Courses/S1 - FRA/5. Numerical Methods for Physics/TP - PRV/Ch2/gof.m

@@ -1,5 +1,5 @@
 %% DEFINE THE BAND STRUCTURE PLOT PARAMETERS
-semiconductor = 'CdTe'; % Choose the semiconductor
+semiconductor = 'ZnTe'; % Choose the semiconductor
 bs_step = 7; % Choose the step for the BS scattering plot
 
 %% READ THE BAND STRUCTURE FROM A FILE
@@ -45,12 +45,16 @@ plot(qpath(5, :), Eband, '-', 'color', 'black', 'linewidth', 1.3); % Plot the ba
 plot(qpath(5, 1:bs_step:end), Eband(:, 1:bs_step:end), 'o', 'color', ...
     'black', 'MarkerSize', 5, 'linewidth', 1.3, 'MarkerFaceColor', 'white'); % Plot the band structure with circles and step 'bs_step'
 hold off
+
+% Define custom tick labels and positions
+custom_labels = {'L','[-1,-1,-1]', '\Gamma','[1,0,0]', 'X','[-1,-1,0]', 'K','[-1,-1,0]', '\Gamma'};
+custom_positions = tix; % Define the custom x-axis positions
 title(materials{m}, 'fontsize', 26, 'position', title_pos(m, :));
 ylabel('E   (eV)', 'FontSize', 24);
 xlim([0, qpath(5, nqpath)]);
 ylim(ylimits(m, :));
-set(gca, 'xtick', tix);
-set(gca, 'xticklabel', til, 'FontSize', 24);
+set(gca, 'xtick', custom_positions);
+set(gca, 'xticklabel', custom_labels, 'FontSize', 24);
 set(gca, 'ytick', ylimits(m, 1):1:ylimits(m, 2));
 set(gca, 'TickLength', [0.03, 0.02]);
 set(gca, 'Box', 'on');
